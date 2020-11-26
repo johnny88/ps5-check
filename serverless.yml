@@ -1,0 +1,24 @@
+service: ps5-check
+
+frameworkVersion: '2'
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+  memorySize: 2048 # recommended
+  timeout: 180
+
+functions:
+  run:
+    handler: src/index.run
+    events:
+      - schedule: cron(0/10 8-18 * * ? *)
+    environment:
+      SLACK_HOOK_URL: ${env:SLACK_HOOK_URL}
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline

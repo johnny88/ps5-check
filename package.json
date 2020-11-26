@@ -7,14 +7,20 @@
   "license": "MIT",
   "dependencies": {
     "@slack/web-api": "^5.13.0",
+    "aws-lambda": "^1.0.6",
     "axios": "^0.21.0",
-    "dotenv": "^8.2.0",
-    "puppeteer": "^5.5.0"
+    "chrome-aws-lambda": "^5.5.0",
+    "puppeteer-core": "^5.5.0"
   },
   "devDependencies": {
-    "@types/puppeteer": "^5.4.0"
+    "@types/aws-lambda": "^8.10.64",
+    "@types/puppeteer": "^5.4.0",
+    "puppeteer": "^5.5.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-plugin-typescript": "^1.1.9",
+    "typescript": "^4.1.2"
   },
   "scripts": {
-    "start": "tsc && node ./build/index.js"
+    "start": "sls offline"
   }
 }
